@@ -19,8 +19,14 @@ class Order:
         return total      
 
     def __str__(self):
-        book_list = '\n'.join([f"{book} - Quantity: {quantity}, Price: ${self.inventory.find_book_by_title(book).price}" for book, quantity in self.items])
-        return f"Customer: {self.customer} \n{book_list}\nShipping Method: {self.shipping_method} (+${10 if self.shipping_method == 'express' else 0})\nTotal: ${self.calculate_total()}"
+        book_list = '\n'.join([
+            f"{book} - Quantity: {quantity}, Price: ${self.inventory.find_book_by_title(book).price}"
+            for book, quantity in self.items
+        ])
+        shipping_cost = 10 if self.shipping_method == 'express' else 0
+        total_cost = self.calculate_total()
+        return f"Customer: {self.customer} \n{book_list}\nShipping Method: {self.shipping_method} (+${shipping_cost})\nTotal: ${total_cost}"
+
 
 class OrderProcessor:
     def __init__(self):
