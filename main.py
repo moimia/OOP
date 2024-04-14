@@ -1,16 +1,17 @@
-from customer import Customer, CustomerManager
-from book import Book, FictionBook, NonFictionBook
-from inventory import Inventory
-from order import OrderProcessor
+# File:         main.py
+# Author:       Nguyen Mia & Vo Thanh Anh Vu
+# Description:  Main program logic
 
+from customer import Customer
+from order import OrderProcessor
 
 def main():
     # Create an OrderProcessor instance
     processor = OrderProcessor()
 
     # Add customers to the customer manager
-    processor.customer_manager.add_customer("John", "john@email.com", "123 Victoria St")
-    processor.customer_manager.add_customer("Paul", "paul@email.com", "456 Queen St")
+    processor.customer_manager.add_customer(Customer("John", "john@email.com", "123 Victoria St"))
+    processor.customer_manager.add_customer(Customer("Paul", "paul@email.com", "456 Queen St"))
 
     # Display customer list
     processor.customer_manager.display_customers()
@@ -25,7 +26,7 @@ def main():
 
     # Process order 1
     try:
-        order1 = processor.process_order("Paul", [("Summer Fridays", 2), ("Becoming", 5)], "express")
+        order1 = processor.process_order("Paul", [("Summer Fridays", 2), ("Becoming", 1)], "express")
         print("\nOrder 1 Details:")
         print(order1)        
     except ValueError as e:
@@ -41,7 +42,6 @@ def main():
 
     # Display current inventory
     processor.inventory.display_inventory()
-
 
 if __name__ == "__main__":
     main()

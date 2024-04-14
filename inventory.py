@@ -1,5 +1,9 @@
-from book import Book, FictionBook, NonFictionBook
+# File:         inventory.py
+# Author:       Nguyen Mia & Vo Thanh Anh Vu
+# Description:  Inventory class represents the inventory of books and 
+#               allows for adding books, checking the availability, and updating the stock quantity
 
+from book import Book, FictionBook, NonFictionBook
 
 class Inventory:
     def __init__(self):

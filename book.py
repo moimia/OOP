@@ -1,6 +1,9 @@
+# File:         book.py
+# Author:       Nguyen Mia & Vo Thanh Anh Vu
+# Description:  Classes representing different types of books
+
 class Book:
     def __init__(self, title, author, price):
-        # Initialize a new book instance with a title, an author, and a price.
         self.title = title
         self.author = author
         self.price = price
@@ -12,10 +15,8 @@ class Book:
 
 class FictionBook(Book):
     def __init__(self, title, author, price, genre):
-        # Initialize a new fiction book instance.
-        # Calls the constructor of the base class (Book) to set title, author, and price.
         super().__init__(title, author, price)
-        self.genre = genre  # Additional attribute for the genre of the book.
+        self.genre = genre  
 
     def __str__(self):
         # Return the string representation of the fiction book, including its genre.
@@ -24,10 +25,8 @@ class FictionBook(Book):
 
 class NonFictionBook(Book):
     def __init__(self, title, author, price, subject):
-        # Initialize a new non-fiction book instance.
-        # Calls the constructor of the base class (Book) to set title, author, and price.
         super().__init__(title, author, price)
-        self.subject = subject  # Additional attribute for the subject of the book.
+        self.subject = subject  
 
     def __str__(self):
         # Return the string representation of the non-fiction book, including its subject.
